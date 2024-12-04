@@ -1,0 +1,21 @@
+function App(): JSX.Element {
+  const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
+
+  const NOTIFICATION_TITLE = 'Title'
+  const NOTIFICATION_BODY = 'Notification from the Renderer process. Click to log to console.'
+  const CLICK_MESSAGE = 'Notification clicked'
+
+  new Notification(NOTIFICATION_TITLE, { body: NOTIFICATION_BODY }).onclick = () =>
+    console.log(CLICK_MESSAGE)
+
+  return (
+    <div>
+      <button onClick={ipcHandle} className="w-full">
+        ipcSend
+      </button>
+      <button onClick={() => alert('알림')}>알림</button>
+    </div>
+  )
+}
+
+export default App
