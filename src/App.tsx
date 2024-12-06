@@ -7,7 +7,7 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   const neis = new Neis({
-    key: "51e229d7edc94e5f8ded1dd28ee3d454",
+    key: import.meta.env.VITE_NEIS_API_KEY,
   });
 
   const getData = async () => {
